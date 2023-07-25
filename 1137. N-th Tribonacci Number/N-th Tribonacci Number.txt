@@ -1,0 +1,8 @@
+    def tribonacci(self, n: int) -> int:
+        Lis = [-1 for i in range(38)]
+        Lis[0] = 0
+        Lis[1] = 1
+        Lis[2] = 1
+        for i in range(3,n+1):
+            Lis[i] = Lis[i-1]+Lis[i-2]+Lis[i-3]
+        return Lis[n]
