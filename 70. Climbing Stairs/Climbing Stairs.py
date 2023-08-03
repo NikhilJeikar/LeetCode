@@ -27,3 +27,21 @@ def climbStairsOptimized(n: int) -> int:
         N2 -= 1
         N1 += 2
     return Out
+
+
+def climbStairsOptimized2(n: int) -> int:
+    List = {}
+
+    def InnerFunc(val):
+        if val == 0:
+            return 1
+        if val < 0:
+            return 0
+        if List.get(val) is not None:
+            return List.get(val)
+
+        List[val] = InnerFunc(val - 1) + InnerFunc(val - 2)
+        return List[val]
+
+    InnerFunc(n)
+    return List[n]
